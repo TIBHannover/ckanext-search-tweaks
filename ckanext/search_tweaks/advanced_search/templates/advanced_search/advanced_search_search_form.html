@@ -60,9 +60,14 @@
 </span>
 {% endset %}
 
-{# {% set repo_count, dataset_count, do_not_use  = h.repositories_dataset_present_count() %} #}
+{% set  count_to_display_repo,
+        count_to_display_dataset,
+        organization_details,
+        datasets_modified,
+        datasets_modified_by_org = h.repositories_dataset_present_count() %}
 
-{% set advance_placeholder_search_text = "Search Across " ~ dataset_count ~ " Datasets & " ~ repo_count ~ " Repositories" %}
+
+{% set advance_placeholder_search_text = "Search Across " ~ count_to_display_dataset ~ " Datasets & " ~ count_to_display_repo ~ " Repositories" %}
 
 {% set default_search_input %}
 <div class="input-group search-input-group search-autocomplete-wrapper"
