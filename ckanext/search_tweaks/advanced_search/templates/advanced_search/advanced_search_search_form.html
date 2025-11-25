@@ -60,7 +60,8 @@
 </span>
 {% endset %}
 
-{% set repo_count, dataset_count, do_not_use  = h.repositories_dataset_present_count() %}
+{# {% set repo_count, dataset_count, do_not_use  = h.repositories_dataset_present_count() %} #}
+
 {% set advance_placeholder_search_text = "Search Across " ~ dataset_count ~ " Datasets & " ~ repo_count ~ " Repositories" %}
 
 {% set default_search_input %}

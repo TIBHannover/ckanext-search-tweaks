@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file:///usr/lib/ckan/default/src/ckanext-composite-search/.idea/ckanext-composite-search.iml" filepath="/usr/lib/ckan/default/src/ckanext-composite-search/.idea/ckanext-composite-search.iml" />
+      <module fileurl="file:///usr/lib/ckan/default/src/ckanext-search-autocomplete/.idea/ckanext-search-autocomplete.iml" filepath="/usr/lib/ckan/default/src/ckanext-search-autocomplete/.idea/ckanext-search-autocomplete.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/ckanext-search-tweaks.iml" filepath="$PROJECT_DIR$/.idea/ckanext-search-tweaks.iml" />
     </modules>
   </component>
