@@ -20,10 +20,10 @@ DEFAULT_FORM_DEFINITION = json.dumps(
             "placeholder": "eg: ROSUVASTATIN",
         },
 
-        "notes": {
-            "type": "text",
-            "label": "Description",
-            "placeholder": "eg: dataset contains NMR",
+        "mol_formula":{
+            "type":"text",
+            "label": "Molecular Formula",
+            "placeholder": "eg: C33H34N4O3",
         },
 
         "inchi":{
@@ -43,7 +43,12 @@ DEFAULT_FORM_DEFINITION = json.dumps(
             "type": "text",
             "label": "Measurement Technique",
             "placeholder": "ex: 1h-nuclear-magnetic ",
-        }
+        },
+        "notes": {
+            "type": "text",
+            "label": "Description",
+            "placeholder": "eg: dataset contains NMR",
+        },
 
     }
 )
