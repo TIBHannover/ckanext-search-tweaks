@@ -42,7 +42,7 @@ DEFAULT_FORM_DEFINITION = json.dumps(
         "measurement_technique": {
             "type": "text",
             "label": "Measurement Technique",
-            "placeholder": "ex: 1h-nuclear-magnetic ",
+            "placeholder": "ex: mass spectrometry",
         },
         "notes": {
             "type": "text",
