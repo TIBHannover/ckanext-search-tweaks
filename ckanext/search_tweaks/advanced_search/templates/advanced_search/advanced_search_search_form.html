@@ -159,46 +159,46 @@
 
 </div>
 
-<script>
-    $(document).ready(function() {
-        console.log("Initializing autocomplete...");
+<!--<script>-->
+<!--    $(document).ready(function() {-->
+<!--        console.log("Initializing autocomplete...");-->
 
-        if ($('#search-autocomplete--suggestion-box').length === 0) {
-            console.error("Suggestion box element is missing from the DOM.");
-        } else {
-            console.log("Suggestion box element found.");
-        }
+<!--        if ($('#search-autocomplete&#45;&#45;suggestion-box').length === 0) {-->
+<!--            console.error("Suggestion box element is missing from the DOM.");-->
+<!--        } else {-->
+<!--            console.log("Suggestion box element found.");-->
+<!--        }-->
 
-        // $('#field-giant-search').autocomplete({
-        //     source: function(request, response) {
-        //         $.ajax({
-        //             url: '/api/3/action/autocomplete_search',
-        //             dataType: 'json',
-        //             data: {
-        //                 q: request.term
-        //             },
-        //             success: function(data) {
-        //                 if (data && data.result && data.result.suggestions) {
-        //                     response($.map(data.result.suggestions, function(item) {
-        //                         return {
-        //                             label: item,
-        //                             value: item
-        //                         };
-        //                     }));
-        //                 } else {
-        //                     response([]);
-        //                 }
-        //             },
-        //             error: function() {
-        //                 console.error('Autocomplete API call failed.');
-        //             }
-        //         });
-        //     },
-        //     minLength: 2,
-        //     select: function(event, ui) {
-        //         $('#field-giant-search').val(ui.item.value);
-        //         $('#dataset-search-form').submit();
-        //     }
-        // });
-    });
-</script>
+<!--        // $('#field-giant-search').autocomplete({-->
+<!--        //     source: function(request, response) {-->
+<!--        //         $.ajax({-->
+<!--        //             url: '/api/3/action/autocomplete_search',-->
+<!--        //             dataType: 'json',-->
+<!--        //             data: {-->
+<!--        //                 q: request.term-->
+<!--        //             },-->
+<!--        //             success: function(data) {-->
+<!--        //                 if (data && data.result && data.result.suggestions) {-->
+<!--        //                     response($.map(data.result.suggestions, function(item) {-->
+<!--        //                         return {-->
+<!--        //                             label: item,-->
+<!--        //                             value: item-->
+<!--        //                         };-->
+<!--        //                     }));-->
+<!--        //                 } else {-->
+<!--        //                     response([]);-->
+<!--        //                 }-->
+<!--        //             },-->
+<!--        //             error: function() {-->
+<!--        //                 console.error('Autocomplete API call failed.');-->
+<!--        //             }-->
+<!--        //         });-->
+<!--        //     },-->
+<!--        //     minLength: 2,-->
+<!--        //     select: function(event, ui) {-->
+<!--        //         $('#field-giant-search').val(ui.item.value);-->
+<!--        //         $('#dataset-search-form').submit();-->
+<!--        //     }-->
+<!--        // });-->
+<!--    });-->
+<!--</script>-->
