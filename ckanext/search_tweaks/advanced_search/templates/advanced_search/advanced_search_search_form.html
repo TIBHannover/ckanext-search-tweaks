@@ -4,10 +4,10 @@
 {% asset "search_autocomplete/search_autocomplete-css" %}
 {% asset "search_autocomplete/search_autocomplete-js" %}
 
-<!-- Include jQuery and jQuery UI Accept here -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<!--&lt;!&ndash; Include jQuery and jQuery UI Accept here &ndash;&gt;-->
+<!--<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>-->
+<!--<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>-->
+<!--<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">-->
 
 {% set form_config = form_config|default(h.advanced_search_form_config())|tojson|forceescape %}
 {% set enable_solr = enable_solr|default(request.args.ext_solr_q | length > 0) %}
@@ -169,36 +169,36 @@
             console.log("Suggestion box element found.");
         }
 
-        $('#field-giant-search').autocomplete({
-            source: function(request, response) {
-                $.ajax({
-                    url: '/api/3/action/autocomplete_search',
-                    dataType: 'json',
-                    data: {
-                        q: request.term
-                    },
-                    success: function(data) {
-                        if (data && data.result && data.result.suggestions) {
-                            response($.map(data.result.suggestions, function(item) {
-                                return {
-                                    label: item,
-                                    value: item
-                                };
-                            }));
-                        } else {
-                            response([]);
-                        }
-                    },
-                    error: function() {
-                        console.error('Autocomplete API call failed.');
-                    }
-                });
-            },
-            minLength: 2,
-            select: function(event, ui) {
-                $('#field-giant-search').val(ui.item.value);
-                $('#dataset-search-form').submit();
-            }
-        });
+        // $('#field-giant-search').autocomplete({
+        //     source: function(request, response) {
+        //         $.ajax({
+        //             url: '/api/3/action/autocomplete_search',
+        //             dataType: 'json',
+        //             data: {
+        //                 q: request.term
+        //             },
+        //             success: function(data) {
+        //                 if (data && data.result && data.result.suggestions) {
+        //                     response($.map(data.result.suggestions, function(item) {
+        //                         return {
+        //                             label: item,
+        //                             value: item
+        //                         };
+        //                     }));
+        //                 } else {
+        //                     response([]);
+        //                 }
+        //             },
+        //             error: function() {
+        //                 console.error('Autocomplete API call failed.');
+        //             }
+        //         });
+        //     },
+        //     minLength: 2,
+        //     select: function(event, ui) {
+        //         $('#field-giant-search').val(ui.item.value);
+        //         $('#dataset-search-form').submit();
+        //     }
+        // });
     });
 </script>
