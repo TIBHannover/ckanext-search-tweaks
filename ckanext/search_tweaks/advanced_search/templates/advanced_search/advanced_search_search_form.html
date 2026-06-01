@@ -31,7 +31,7 @@
         <ul id="search-autocomplete--suggestion-box" class="suggestion-box">
             {% if type == 'molecule' %}
              {% set suggestion_groups = [
-                ('datasets', 'Relevant molecule'),
+                ('molecule', 'Relevant molecules'),
                 ('categories','Browse filters')
             ]
             %}
@@ -68,12 +68,19 @@
 
 
 {% set advance_placeholder_search_text = "Search Across " ~ count_to_display_dataset ~ " Datasets & " ~ count_to_display_repo ~ " Repositories" %}
+{% set autocomplete_fq = '' %}
+{% if type == 'molecule' %}
+  {% set autocomplete_fq = '+type:molecule' %}
+{% elif type == 'dataset' %}
+  {% set autocomplete_fq = '+type:dataset' %}
+{% endif %}
 
 {% set default_search_input %}
 <div class="input-group search-input-group search-autocomplete-wrapper"
      data-module="ckanext-search-autocomplete"
      data-module-suggestion-box="#search-autocomplete--suggestion-box"
-     data-module-autocomplete-input="#field-giant-search">
+     data-module-autocomplete-input="#field-giant-search"
+     {% if autocomplete_fq %}data-module-fq="{{ autocomplete_fq }}"{% endif %}>
 
 	<input type="text" class="form-control input-lg" id="field-giant-search"
            name="q" value="{{ request.params.q | default('') }}" autocomplete="off"
@@ -159,46 +166,3 @@
 
 </div>
 
-<!--<script>-->
-<!--    $(document).ready(function() {-->
-<!--        console.log("Initializing autocomplete...");-->
-
-<!--        if ($('#search-autocomplete&#45;&#45;suggestion-box').length === 0) {-->
-<!--            console.error("Suggestion box element is missing from the DOM.");-->
-<!--        } else {-->
-<!--            console.log("Suggestion box element found.");-->
-<!--        }-->
-
-<!--        // $('#field-giant-search').autocomplete({-->
-<!--        //     source: function(request, response) {-->
-<!--        //         $.ajax({-->
-<!--        //             url: '/api/3/action/autocomplete_search',-->
-<!--        //             dataType: 'json',-->
-<!--        //             data: {-->
-<!--        //                 q: request.term-->
-<!--        //             },-->
-<!--        //             success: function(data) {-->
-<!--        //                 if (data && data.result && data.result.suggestions) {-->
-<!--        //                     response($.map(data.result.suggestions, function(item) {-->
-<!--        //                         return {-->
-<!--        //                             label: item,-->
-<!--        //                             value: item-->
-<!--        //                         };-->
-<!--        //                     }));-->
-<!--        //                 } else {-->
-<!--        //                     response([]);-->
-<!--        //                 }-->
-<!--        //             },-->
-<!--        //             error: function() {-->
-<!--        //                 console.error('Autocomplete API call failed.');-->
-<!--        //             }-->
-<!--        //         });-->
-<!--        //     },-->
-<!--        //     minLength: 2,-->
-<!--        //     select: function(event, ui) {-->
-<!--        //         $('#field-giant-search').val(ui.item.value);-->
-<!--        //         $('#dataset-search-form').submit();-->
-<!--        //     }-->
-<!--        // });-->
-<!--    });-->
-<!--</script>-->
