@@ -140,29 +140,39 @@
     #}
 
         {% block search_options %}
-        <div class="advanced-toggles">
-          {% block advanced_toggle %}
-            <div class="toggle-item enable-advanced">
-              <input
-                id="toggle-enable-advanced"
-                class="switch-input"
-                type="checkbox"
-                role="switch"
-                aria-checked="{{ 'true' if enable_advanced or enable_solr else 'false' }}"
-                autocomplete="off"
-                {% if enable_advanced or enable_solr %}checked{% endif %} />
-              <label for="toggle-enable-advanced" class="switch-label">
-                <span class="switch-track" aria-hidden="true">
-                  <span class="switch-thumb"></span>
-                </span>
-                <span class="switch-text">
-                 <b> {{ labels.advanced_toggle or _('Advanced search') }} </b>
-                </span>
-              </label>
-            </div>
-          {% endblock advanced_toggle %}
+  <div class="search-options-row">
+
+    <div class="advanced-toggles">
+      {% block advanced_toggle %}
+        <div class="toggle-item enable-advanced">
+          <input
+            id="toggle-enable-advanced"
+            class="switch-input"
+            type="checkbox"
+            role="switch"
+            aria-checked="{{ 'true' if enable_advanced or enable_solr else 'false' }}"
+            autocomplete="off"
+            {% if enable_advanced or enable_solr %}checked{% endif %} />
+
+          <label for="toggle-enable-advanced" class="switch-label">
+            <span class="switch-track" aria-hidden="true">
+              <span class="switch-thumb"></span>
+            </span>
+
+            <span class="switch-text">
+              <b>{{ labels.advanced_toggle or _('Advanced search') }}</b>
+            </span>
+          </label>
         </div>
-        {% endblock search_options %}
+      {% endblock advanced_toggle %}
+    </div>
+
+    <div class="structure-search-inline">
+      {% snippet 'chemstructure_search/home_structure-search.html' %}
+    </div>
+
+  </div>
+{% endblock search_options %}
 
 </div>
 
