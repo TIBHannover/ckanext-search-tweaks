@@ -29,6 +29,7 @@
 
 {% if h.search_autocomplete_enable_default_implementation() %}
         <ul id="search-autocomplete--suggestion-box" class="suggestion-box">
+
             {% if type == 'molecule' %}
              {% set suggestion_groups = [
                 ('datasets', 'Relevant molecules'),
@@ -67,7 +68,7 @@
         datasets_modified_by_org = h.repositories_dataset_present_count() %}
 
 
-{% set advance_placeholder_search_text = "Search Across 170,000+ Datasets & 5 Repositories" %}
+{% set advance_placeholder_search_text = "Search Across " ~ count_to_display_dataset ~ " Datasets & " ~ count_to_display_repo ~ " Repositories" %}
 {% set autocomplete_fq = '' %}
 {% if type == 'molecule' %}
   {% set autocomplete_fq = '+type:molecule' %}
@@ -169,12 +170,14 @@
 
     <div class="structure-search-inline">
       {% snippet 'chemstructure_search/home_structure-search.html' %}
-      {# {% snippet 'chemstructure_search/structure_search_active.html' %} #}
         <hr>
     </div>
 
+
   </div>
 {% endblock search_options %}
-
+<div>
+          {% snippet 'chemstructure_search/structure_search_active.html' %}
+      </div>
 </div>
 
