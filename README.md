@@ -99,6 +99,19 @@ following methods:
 	# (optional, default: 1).
 	ckanext.search_tweaks.common.mm = 2<-1 5<80%
 
+	# Additional Solr query fields used only when fq explicitly restricts the
+	# search to dataset_type:molecule. The default is empty so installations
+	# without these fields continue to work. Field names and boosts are a Solr
+	# deployment decision.
+	ckanext.search_tweaks.molecule.qf = molecule_names^5 inchi_key^10
+
+Molecule-page text searches are handled entirely by CKAN's normal Solr query.
+The extension does not resolve names through PubChem at request time and does
+not query an RDKit/PostgreSQL database. The configured fields must be defined
+and populated by the indexing pipeline before enabling
+`ckanext.search_tweaks.molecule.qf`. A full search-index rebuild is required
+after adding or populating these fields.
+
 
 ---
 
